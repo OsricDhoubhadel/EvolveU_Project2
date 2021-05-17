@@ -13,4 +13,4 @@ const superheroSchema = new Schema({
   sidekick: String
 });
 
-module.exports = mongoose.model('Superhero', superheroSchema, 'superhero');
+module.exports = mongoose.model('Product', superheroSchema, 'product');

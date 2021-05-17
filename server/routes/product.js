@@ -1,21 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
-const Superhero = require('../models/Superhero');
+const Product = require('../models/Product');
 
-/* List all superheroes. */
+/* List all products. */
 router.get('/', async (req, res) => {
-  let data = await Superhero.find({});
+  let data = await Product.find({});
   console.info(`records retrieved from mongoose:`, data?.length)
   res.send(data);
 });
 
-/* List one superhero by ID. */
+/* List one product by ID. */
 router.get('/:id', async function(req, res) {
   
   try {
-    const data = await Superhero.findOne({_id: req.params.id});
-    console.info(`Found Superhero:`, data)
+    const data = await Product.findOne({_id: req.params.id});
+    console.info(`Found Product:`, data)
     res.send(data);
   } catch (error) {
     console.log(error)
@@ -23,19 +23,19 @@ router.get('/:id', async function(req, res) {
   }
 });
 
-/* Create a superhero from form data. */
+/* Create a product from form data. */
 router.post('/', async (req, res) => {
   let superheroToCreate = req.body
   try {
-    let newSuperhero = new Superhero(superheroToCreate)
+    let newSuperhero = new Product(superheroToCreate)
     await newSuperhero.save()
-    console.log("Created Superhero", newSuperhero)
+    console.log("Created Product", newSuperhero)
     res.send(newSuperhero)  
   }
   catch (error) {
     console.log(error)
     if (error.code === 11000) {
-      res.status(409).send('Superhero ' + superheroToCreate.name + ' already exists');      
+      res.status(409).send('Product ' + superheroToCreate.name + ' already exists');      
     }
     else {
       res.sendStatus(500)
@@ -43,12 +43,12 @@ router.post('/', async (req, res) => {
   }
 })
 
-/* Update a superhero by ID. */
+/* Update a product by ID. */
 router.put('/:name', async function(req, res) {
   let superheroToUpdate = req.body
   try {
-    let data = await Superhero.findByIdAndUpdate(req.params.name, superheroToUpdate);
-    console.log("Updated Superhero", data)
+    let data = await Product.findByIdAndUpdate(req.params.name, superheroToUpdate);
+    console.log("Updated Product", data)
     res.send(data);
   }
   catch(error) {
@@ -57,15 +57,15 @@ router.put('/:name', async function(req, res) {
   }
 })
 
-/* Delete a superhero by ID. */
+/* Delete a product by ID. */
 router.delete("/:id", async (req, res) => {
   try {
-    const data = await Superhero.findByIdAndDelete(req.params.id);
+    const data = await Product.findByIdAndDelete(req.params.id);
 
     if (!data) {
       res.sendStatus(404);
     } else {
-      console.log("Deleted Superhero", data);
+      console.log("Deleted Product", data);
       res.send(data);
     }
   } catch (error) {
