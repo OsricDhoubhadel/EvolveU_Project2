@@ -1,7 +1,7 @@
 import './App.css';
 import { AppBar, Container, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import ShieldIcon from '@material-ui/icons/Security';
-import SuperheroesTable from './components/SuperheroesTable.Material';
+import ProductTable from './components/ProductTable.Material';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -17,12 +17,12 @@ const App = () => {
         <Toolbar>
           <ShieldIcon className={classes.icon} />
           <Typography variant='h6' color='inherit' noWrap>
-            Super Heroes
+            Products
           </Typography>
         </Toolbar>
       </AppBar>
       <Container maxWidth='md'>
-        <SuperheroesTable />
+        <ProductTable />
       </Container>
     </>
   );

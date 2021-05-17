@@ -1,7 +1,8 @@
 .title-bar {
-  background-color: blue;
-  color: white;
+  background-color: green;
+  color: rgb(255, 255, 255);
   padding: 15px;
+  text-align: center;
 }
 
 .title-bar h1 {

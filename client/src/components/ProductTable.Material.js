@@ -23,13 +23,13 @@ const SimpleTable = () => {
   const classes = useStyles();
 
   useEffect(() => {
-    const getSuperheroes = async () => {
+    const getProducts = async () => {
       // fetch uses the "proxy" value set in client/package.json
-      let response = await fetch('/superhero');
+      let response = await fetch('/product');
       let data = await response.json();
       setRows(data);
     };
-    getSuperheroes();
+    getProducts();
   }, []);
 
   return (
@@ -38,9 +38,11 @@ const SimpleTable = () => {
         <TableHead>
           <TableRow>
             <TableCell className={classes.headerCell}>Name</TableCell>
-            <TableCell className={classes.headerCell}>Nickname</TableCell>
-            <TableCell className={classes.headerCell}>Alter Ego</TableCell>
-            <TableCell className={classes.headerCell}>Sidekick</TableCell>
+            <TableCell className={classes.headerCell}>Category</TableCell>
+            <TableCell className={classes.headerCell}>CO2_Consumption</TableCell>
+            <TableCell className={classes.headerCell}>Product_Life</TableCell>
+            <TableCell className={classes.headerCell}>Water_Consumption</TableCell>
+            <TableCell className={classes.headerCell}>Comments</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -49,9 +51,11 @@ const SimpleTable = () => {
               <TableCell component='th' scope='row'>
                 {row.name}
               </TableCell>
-              <TableCell>{row.nickname}</TableCell>
-              <TableCell>{row.alterego}</TableCell>
-              <TableCell>{row.sidekick}</TableCell>
+              <TableCell>{row.category}</TableCell>
+              <TableCell>{row.co2_consumption}</TableCell>
+              <TableCell>{row.product_life}</TableCell>
+              <TableCell>{row.water_consumption}</TableCell>
+              <TableCell>{row.comments}</TableCell>
             </TableRow>
           ))}
         </TableBody>

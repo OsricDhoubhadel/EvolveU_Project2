@@ -70,8 +70,8 @@ this project
 
 Here are the command-line steps taken to create the initial version of this project:
 ```bash
-$ mkdir superheroes
-$ cd superheroes
+$ mkdir products
+$ cd products
 $ npx create-react-app --use-npm client
 $ npx express-generator server
 $ rm -rf client/.git client/.gitignore client/yarn.k

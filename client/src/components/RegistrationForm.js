@@ -2,28 +2,30 @@ import { useState } from "react"
 
 const RegistrationForm = () => {
     let [name, setName] = useState()
-    let [nickname, setNickname] = useState()
-    let [alterego, setAlterego] = useState()
-    let [sidekick, setSidekick] = useState()
+    let [category, setCategory] = useState()
+    let [co2_consumption, setCO2_Consumption] = useState()
+    let [product_life, setProduct_Life] = useState()
+    let [water_consumption, setWater_Consumption] = useState()
 
     let [createError, setCreateError] = useState()
 
     async function onCreateClicked() {
         console.log('Create has been clicked!')
-        let superheroToCreate = {
+        let productToCreate = {
             name, 
-            nickname,
-            alterego,
-            sidekick
+            category,
+            co2_consumption,
+            product_life,
+            water_consumption
         }
-        console.log('Creating superhero with', superheroToCreate )
+        console.log('Creating product with', productToCreate )
         try {
-            let createResponse = await fetch('/superhero', {
+            let createResponse = await fetch('/product', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(superheroToCreate)
+                body: JSON.stringify(productToCreate)
             })
             // the server didn't like the data for some reason
             console.log('Create response is', createResponse)
@@ -47,7 +49,7 @@ const RegistrationForm = () => {
         setFunction(event.target.value);
     };
 
-    let createSuperheroDataInvalid = !name || (name.trim().length === 0)
+    let createProductDataInvalid = !name || (name.trim().length === 0)
 
     return (
         <div>
@@ -56,18 +58,22 @@ const RegistrationForm = () => {
                 <input id="name" value={name} onChange={(event) => onInputChange(event,setName)}/>
             </div>
             <div>
-                <label htmlFor="nickname">Nickname</label>
-                <input id="nickname" value={nickname} onChange={(event) => onInputChange(event,setNickname)}/>
+                <label htmlFor="category">Category</label>
+                <input id="category" value={category} onChange={(event) => onInputChange(event,setCategory)}/>
             </div>
             <div>
-                <label htmlFor="alterego">Alter ego</label>
-                <input id="alterego" value={alterego} onChange={(event) => onInputChange(event,setAlterego)}/>
+                <label htmlFor="co2_consumption">CO2 Consumption</label>
+                <input id="co2_consumption" value={co2_consumption} onChange={(event) => onInputChange(event,setCO2_Consumption)}/>
             </div>
             <div>
-                <label htmlFor="sidekick">Sidekick</label>
-                <input id="sidekick" value={sidekick} onChange={(event) => onInputChange(event,setSidekick)}/>
+                <label htmlFor="product_life">Product Life</label>
+                <input id="product_life" value={product_life} onChange={(event) => onInputChange(event,setProduct_Life)}/>
             </div>
-            <button disabled={ createSuperheroDataInvalid } onClick={ onCreateClicked }>Create Superhero</button>
+            <div>
+                <label htmlFor="water_consumption">Water Consumption</label>
+                <input id="water_consumption" value={water_consumption} onChange={(event) => onInputChange(event,setWater_Consumption)}/>
+            </div>
+            <button disabled={ createProductDataInvalid } onClick={ onCreateClicked }>Create Product</button>
             { createError && <div>{createError}</div> }            
         </div>
     )

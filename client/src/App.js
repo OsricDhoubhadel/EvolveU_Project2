@@ -1,14 +1,14 @@
 import './App.css';
-import SuperheroesTable from './components/SuperheroesTable'
+import ProductTable from './components/ProductTable'
 import RegistrationForm from './components/RegistrationForm'
 
 const App = () => {
   return (
     <div>
       <div className="title-bar">
-        <h1>Superhero Registry</h1>
+        <h1>Product Registry</h1>
       </div>
-      <SuperheroesTable />
+      <ProductTable />
       <RegistrationForm />
     </div>
   );

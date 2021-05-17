@@ -25,17 +25,17 @@ router.get('/:id', async function(req, res) {
 
 /* Create a product from form data. */
 router.post('/', async (req, res) => {
-  let superheroToCreate = req.body
+  let productToCreate = req.body
   try {
-    let newSuperhero = new Product(superheroToCreate)
-    await newSuperhero.save()
-    console.log("Created Product", newSuperhero)
-    res.send(newSuperhero)  
+    let newProduct = new Product(productToCreate)
+    await newProduct.save()
+    console.log("Created Product", newProduct)
+    res.send(newProduct)  
   }
   catch (error) {
     console.log(error)
     if (error.code === 11000) {
-      res.status(409).send('Product ' + superheroToCreate.name + ' already exists');      
+      res.status(409).send('Product ' + productToCreate.name + ' already exists');      
     }
     else {
       res.sendStatus(500)
@@ -45,9 +45,9 @@ router.post('/', async (req, res) => {
 
 /* Update a product by ID. */
 router.put('/:name', async function(req, res) {
-  let superheroToUpdate = req.body
+  let productToUpdate = req.body
   try {
-    let data = await Product.findByIdAndUpdate(req.params.name, superheroToUpdate);
+    let data = await Product.findByIdAndUpdate(req.params.name, productToUpdate);
     console.log("Updated Product", data)
     res.send(data);
   }

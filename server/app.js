@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // IMPORT ROUTES
-var superheroRouter = require('./routes/product');
+var productRouter = require('./routes/product');
 
 var app = express();
 
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // USE ROUTES
-app.use('/product', superheroRouter);
+app.use('/product', productRouter);
 
 // serve the react application
 app.use(express.static('../client/build'))

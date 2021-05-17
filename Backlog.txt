@@ -18,17 +18,17 @@ USER TYPE: AGENT
 -------RELEASE------
 
 - Search/filter
-- edit a superhero?
+- edit a product?
 - suspend / block
-- delete erroneous superhero
-- add a new superhero?
-- comment on superhero - public or private?
+- delete erroneous product
+- add a new product?
+- comment on product - public or private?
 - assign ratings (danger rating)
 - update activities / sightings
 - assign cost to incidents!
 
 USER TYPE: PUBLIC
 - report incident
-- view public profile of superhero
-- rate superhero
+- view public profile of product
+- rate product
 

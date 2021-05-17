@@ -1,9 +1,9 @@
-.superhero-table {
+.product-table {
     display: flex;
     justify-content: center;
 }
   
-.superhero-table th {
+.product-table th {
     background-color: grey;
     color: white;
     padding: 2px 20px 2px 20px;
