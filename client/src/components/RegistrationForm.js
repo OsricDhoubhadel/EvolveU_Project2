@@ -6,6 +6,7 @@ const RegistrationForm = () => {
     let [co2_consumption, setCO2_Consumption] = useState()
     let [product_life, setProduct_Life] = useState()
     let [water_consumption, setWater_Consumption] = useState()
+    let [comments, setComments] = useState()
 
     let [createError, setCreateError] = useState()
 
@@ -16,7 +17,8 @@ const RegistrationForm = () => {
             category,
             co2_consumption,
             product_life,
-            water_consumption
+            water_consumption,
+            comments
         }
         console.log('Creating product with', productToCreate )
         try {
@@ -72,6 +74,10 @@ const RegistrationForm = () => {
             <div>
                 <label htmlFor="water_consumption">Water Consumption</label>
                 <input id="water_consumption" value={water_consumption} onChange={(event) => onInputChange(event,setWater_Consumption)}/>
+            </div>
+            <div>
+                <label htmlFor="comments">Comments</label>
+                <input id="comments" value={comments} onChange={(event) => onInputChange(event,setComments)}/>
             </div>
             <button disabled={ createProductDataInvalid } onClick={ onCreateClicked }>Create Product</button>
             { createError && <div>{createError}</div> }            

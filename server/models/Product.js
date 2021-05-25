@@ -9,9 +9,10 @@ const productSchema = new Schema({
     unique: true
   },
   category: String,
-  co2_consumption: String,
-  product_life: String,
-  water_consumption: String
+  co2_consumption: Number,
+  product_life: Number,
+  water_consumption: Number,
+  comments: String 
 });
 
 module.exports = mongoose.model('Product', productSchema, 'product');

@@ -27,6 +27,7 @@ const ProductTable = () => {
                         <td>{row.co2_consumption}</td>
                         <td>{row.product_life}</td>
                         <td>{row.water_consumption}</td>
+                        <td>{row.comments}</td>
                     </tr>
                   )
               })}                
